@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIE286 — Experiment</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="experiment-page">
+
+  <!-- Background video with tint overlay (simulates smart-glass HUD) -->
+  <div class="video-bg">
+    <video id="bgVideo" autoplay muted loop playsinline>
+      <source src="video/construction.mp4" type="video/mp4">
+    </video>
+    <div class="video-tint"></div>
+  </div>
+
+  <!-- ========== SCREENS ========== -->
+
+  <!-- Pre-experiment instructions -->
+  <div id="screenIntro" class="screen active">
+    <div class="screen-card">
+      <h2>Instructions</h2>
+      <p>You will be shown or hear a <strong>one-syllable word</strong>.</p>
+      <p>Your task is to <strong>type the word</strong> and press <strong>Enter</strong> as quickly and accurately as possible.</p>
+      <hr>
+      <p class="dimmed">We will begin with a short <em>control round</em> (5 words, always visual), followed by the main experiment.</p>
+      <button id="btnBegin" class="btn-primary">I'm Ready</button>
+    </div>
+  </div>
+
+  <!-- Active trial -->
+  <div id="screenTrial" class="screen">
+    <div class="trial-hud">
+      <div class="hud-phase" id="hudPhase">CONTROL</div>
+      <div class="hud-progress" id="hudProgress">1 / 5</div>
+    </div>
+
+    <div class="cue-area">
+      <div id="cueText" class="cue-text"></div>
+    </div>
+
+    <div class="input-area">
+      <input
+        type="text"
+        id="trialInput"
+        class="trial-input"
+        autocomplete="off"
+        spellcheck="false"
+        autofocus
+        placeholder="type here…"
+      >
+    </div>
+  </div>
+
+  <!-- Inter-trial pause -->
+  <div id="screenPause" class="screen">
+    <div class="pause-dot"></div>
+  </div>
+
+  <!-- Finished -->
+  <div id="screenDone" class="screen">
+    <div class="screen-card">
+      <div class="done-icon">✓</div>
+      <h2>Thank You!</h2>
+      <p>Your responses have been recorded.</p>
+      <p class="dimmed" id="doneStats"></p>
+      <button class="btn-primary" onclick="window.location.href='/'">Back to Setup</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

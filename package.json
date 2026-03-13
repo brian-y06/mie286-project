@@ -1,0 +1,12 @@
+{
+  "name": "mie286-experiment",
+  "version": "1.0.0",
+  "description": "MIE286 Human Factors Experiment — Visual vs Auditory Cue Response",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
