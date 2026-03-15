@@ -38,7 +38,7 @@ app.post('/api/results', (req, res) => {
   const csvPath = path.join(participantDir, `${cond}_${ts}.csv`);
 
   // CSV header
-  const header = 'participantId,condition,phase,trialIndex,targetWord,typedWord,accuracy,responseTimeMs,timestamp';
+  const header = 'participantId,condition,phase,trialIndex,targetWord,typedWord,accuracy,reactionTimeMs,typingTimeMs,totalTimeMs,timestamp';
 
   // Build CSV lines
   const lines = rows.map(r => {
@@ -51,7 +51,9 @@ app.post('/api/results', (req, res) => {
       r.targetWord,
       typed,
       r.accuracy,
-      r.responseTimeMs,
+      r.reactionTimeMs ?? '',
+      r.typingTimeMs ?? '',
+      r.totalTimeMs,
       r.timestamp
     ].join(',');
   }).join('\n');

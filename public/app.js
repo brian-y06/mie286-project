@@ -31,6 +31,7 @@
   let words = [];
   let trialIndex = 0;
   let cueTimestamp = 0;
+  let firstKeystrokeTimestamp = 0;
   const results = [];
 
   // ── Helpers ──
@@ -99,6 +100,7 @@
     // Show trial screen
     showScreen(screenTrial);
     trialInput.value = '';
+    firstKeystrokeTimestamp = 0;   // reset for this trial
     trialInput.focus();
 
     // Delay then present cue
@@ -110,7 +112,13 @@
   // ── Handle response ──
   function handleResponse() {
     const responseTimestamp = performance.now();
-    const responseTimeMs = Math.round(responseTimestamp - cueTimestamp);
+    const reactionTimeMs = firstKeystrokeTimestamp
+      ? Math.round(firstKeystrokeTimestamp - cueTimestamp)
+      : null;
+    const typingTimeMs = firstKeystrokeTimestamp
+      ? Math.round(responseTimestamp - firstKeystrokeTimestamp)
+      : null;
+    const totalTimeMs = Math.round(responseTimestamp - cueTimestamp);
     const typed = trialInput.value.trim().toLowerCase();
     const target = words[trialIndex].toLowerCase();
     const accuracy = typed === target ? 1 : 0;
@@ -123,7 +131,9 @@
       targetWord: target,
       typedWord: typed,
       accuracy,
-      responseTimeMs,
+      reactionTimeMs,
+      typingTimeMs,
+      totalTimeMs,
       timestamp: new Date().toISOString()
     });
 
@@ -142,9 +152,11 @@
     showScreen(screenDone);
 
     // Stats
-    const avgTime = Math.round(results.reduce((s, r) => s + r.responseTimeMs, 0) / results.length);
+    const avgReaction = Math.round(results.reduce((s, r) => s + (r.reactionTimeMs || 0), 0) / results.length);
+    const avgTyping   = Math.round(results.reduce((s, r) => s + (r.typingTimeMs || 0), 0) / results.length);
+    const avgTotal    = Math.round(results.reduce((s, r) => s + r.totalTimeMs, 0) / results.length);
     const correctCount = results.filter(r => r.accuracy === 1).length;
-    doneStats.textContent = `${results.length} trials · avg ${avgTime} ms · ${correctCount}/${results.length} correct`;
+    doneStats.textContent = `${results.length} trials · reaction ${avgReaction} ms · typing ${avgTyping} ms · total ${avgTotal} ms · ${correctCount}/${results.length} correct`;
 
     // POST to server
     try {
@@ -170,6 +182,13 @@
     // Bind start button
     btnBegin.addEventListener('click', () => {
       runTrial();
+    });
+
+    // Capture first keystroke timestamp (reaction time ends here)
+    trialInput.addEventListener('input', () => {
+      if (firstKeystrokeTimestamp === 0 && trialInput.value.length > 0) {
+        firstKeystrokeTimestamp = performance.now();
+      }
     });
 
     // Bind Enter key on input
