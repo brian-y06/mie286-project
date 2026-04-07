@@ -1,6 +1,6 @@
 # Load the split data
-auditory_data <- read.csv("C:/Users/harle/OneDrive/Desktop/engsci year 2/mie/mie286-project/analysis/ttest_auditory_data.csv")
-visual_data <- read.csv("C:/Users/harle/OneDrive/Desktop/engsci year 2/mie/mie286-project/analysis/ttest_visual_data.csv")
+auditory_data <- read.csv("ttest_auditory_data.csv")
+visual_data <- read.csv("ttest_visual_data.csv")
 
 aud_avg <- 7.32167175281
 vis_avg <- 6.62155928124
