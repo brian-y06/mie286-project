@@ -1,5 +1,5 @@
 # Load the aggregated master dataset
-data <- read.csv("master_data.csv")
+data <- read.csv("C:/Users/harle/OneDrive/Desktop/engsci year 2/mie/mie286-project/analysis/master_data.csv")
 
 cat("=== Descriptive Statistics: Overall ===\n")
 

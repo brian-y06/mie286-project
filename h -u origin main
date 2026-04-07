@@ -1,0 +1,29 @@
+[33mcommit 70c1da49f34e5416c8453de02f8e7d5e11afcac7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Harley Wu <harleywukx@gmail.com>
+Date:   Sun Apr 5 14:29:23 2026 -0400
+
+    stuff
+
+[33mcommit 16a4cbf0cd924738c90ab396363fb3fffb3aab5b[m
+Author: Obsidian <josephineyzc@gmail.com>
+Date:   Sun Apr 5 14:25:59 2026 -0400
+
+    Add data points p02-27 except for p16
+
+[33mcommit 5b813667944dd0e1584b8d9780807941ab29c141[m
+Author: Brian Ye <brian.ye2021@gmail.com>
+Date:   Sun Mar 15 18:20:58 2026 -0400
+
+    add reaction time, typing time, accuracy
+
+[33mcommit 19e519fa3f3703c4b0f70a44e21cefffbcefb286[m
+Author: Brian Ye <brian.ye2021@gmail.com>
+Date:   Fri Mar 13 19:23:18 2026 -0400
+
+    initial working setup
+
+[33mcommit 751f5406acb454cf07c22767d703ade21a9b0a62[m
+Author: Brian Ye <brian.ye2021@gmail.com>
+Date:   Fri Mar 13 18:44:48 2026 -0400
+
+    first commit

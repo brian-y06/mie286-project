@@ -1,6 +1,6 @@
 # Load the split data
-auditory_data <- read.csv("ttest_auditory_data.csv")
-visual_data <- read.csv("ttest_visual_data.csv")
+auditory_data <- read.csv("C:/Users/harle/OneDrive/Desktop/engsci year 2/mie/mie286-project/analysis/ttest_auditory_data.csv")
+visual_data <- read.csv("C:/Users/harle/OneDrive/Desktop/engsci year 2/mie/mie286-project/analysis/ttest_visual_data.csv")
 
 # Null Hypothesis, there is no difference in reaction time between the two groups
 result <- t.test(visual_data$logReactionTime, auditory_data$logReactionTime)
