@@ -12,7 +12,8 @@ library(ggplot2)
 
 # 2. LOAD DATA ------------------------------------------------------------
 # Ensure the file is in your current working directory
-file_path <- "ttest_auditory_data.csv"
+file_path <- "C:/Users/harle/OneDrive/Desktop/engsci year 2/mie/mie286-project/analysis/ttest_visual_data.csv"
+# change auditory to visual and vice versa for difference analysis
 
 if (!file.exists(file_path)) {
   stop("The file 'ttest_auditory_data.csv' was not found in the current folder.")
@@ -55,8 +56,7 @@ plot <- ggplot(participant_summary, aes(x = mean_RT, y = mean_ACC)) +
 # Display the plot
 print(plot)
 
-# Save the plot for your LaTeX report
-# ggsave("speed_accuracy_correlation.png", width = 7, height = 5)
+# Auditory
 
 # --- Correlation Results:  Typing Speed vs. Accuracy ---
 # 
@@ -73,8 +73,6 @@ print(plot)
 # 
 # `geom_smooth()` using formula = 'y ~ x'
 
-
-
 # --- Correlation Results: Reaction Speed vs. Accuracy --- (probably not relevent)
 # 
 #         Pearson's product-moment correlation
@@ -87,5 +85,40 @@ print(plot)
 # sample estimates:
 #       cor
 # 0.1330159
+# 
+# `geom_smooth()` using formula = 'y ~ x'
+
+
+
+
+# Visual
+
+# --- Correlation Results: Typing Speed vs. Accuracy ---
+# 
+#         Pearson's product-moment correlation
+# 
+# data:  participant_summary$mean_RT and participant_summary$mean_ACC
+# t = -0.76995, df = 11, p-value = 0.4575
+# alternative hypothesis: true correlation is not equal to 0
+# 95 percent confidence interval:
+#  -0.6910217  0.3710857
+# sample estimates:
+#       cor 
+# -0.226136
+# 
+# `geom_smooth()` using formula = 'y ~ x'
+
+# --- Correlation Results: Reaction Speed vs. Accuracy --- (again, probably not gonna be used)
+# 
+#         Pearson's product-moment correlation
+# 
+# data:  participant_summary$mean_RT and participant_summary$mean_ACC
+# t = 1.0455, df = 11, p-value = 0.3182
+# alternative hypothesis: true correlation is not equal to 0
+# 95 percent confidence interval:
+#  -0.3000298  0.7306115
+# sample estimates:
+#       cor
+# 0.3006578
 # 
 # `geom_smooth()` using formula = 'y ~ x'
