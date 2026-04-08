@@ -1,5 +1,5 @@
-aud_data <- read.csv("C:/Users/harle/OneDrive/Desktop/engsci year 2/mie/mie286-project/analysis/ttest_auditory_data.csv")
-vis_data <- read.csv("C:/Users/harle/OneDrive/Desktop/engsci year 2/mie/mie286-project/analysis/ttest_visual_data.csv")
+aud_data <- read.csv("ttest_auditory_data.csv")
+vis_data <- read.csv("ttest_visual_data.csv")
 
 aud_accuracy_table <- table(aud_data$targetWord, aud_data$accuracy)
 aud_chi_result <- chisq.test(aud_accuracy_table)
