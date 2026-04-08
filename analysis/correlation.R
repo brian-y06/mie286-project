@@ -12,7 +12,7 @@ library(ggplot2)
 
 # 2. LOAD DATA ------------------------------------------------------------
 # Ensure the file is in your current working directory
-file_path <- "C:/Users/harle/OneDrive/Desktop/engsci year 2/mie/mie286-project/analysis/ttest_visual_data.csv"
+file_path <- "ttest_visual_data.csv"
 # change auditory to visual and vice versa for difference analysis
 
 if (!file.exists(file_path)) {
